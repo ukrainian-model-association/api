@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+SESSION="$(date +%Y%m%d%H%M)"
+
+fs_sync_upload() {
+
+    zip_file="/tmp/package-${SESSION}.zip"
+    remote_dir='/home/docker/modelsua/apps/api'
+
+    rm -rf /tmp/package-*.zip
+    zip -rq "${zip_file}" vendor/ composer.json composer.lock symfony.lock
+    scp "$zip_file" "ias-stage:$zip_file"
+    ssh -t root@ias-stage <<END
+cd "${remote_dir}" || {
+  echo -e "\e[31m${remote_dir} does not exists\e[0m"
+  exit 1
+}
+unzip -o "${zip_file}" -d .
+chown -R docker:docker .
+rm -rf "${zip_file}"
+END
+    echo -e "\e[32mDONE!\e[0m"
+}
+
+fs_sync_download() {
+    local host='bravo' \
+        zipFile="/tmp/package-${SESSION}.zip"
+
+    ssh ${host} << EOF
+rm -rf /tmp/package-*.zip
+cd /home/modelsua/docker/apps/api
+zip -rq "${zipFile}" vendor/ var/ composer.json composer.lock symfony.lock
+EOF
+    scp ${host}:"${zipFile}" "${zipFile}"
+    rm -rf vendor/ var/ composer.json composer.lock symfony.lock
+    unzip -oq "${zipFile}" -d .
+    rm -rf "${zipFile}"
+}
+
+fs_sync_download

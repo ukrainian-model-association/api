@@ -1,0 +1,79 @@
+FROM php:7.4-fpm
+
+ENV PHP_UID 1000
+
+RUN apt-get update \
+ && apt-get install -y \
+    git \
+    zip \
+    unzip \
+    openssl \
+
+    # intl dependencies
+    zlib1g-dev libicu-dev g++ \
+    #
+    libmcrypt-dev \
+
+    # imagemagick
+    libmagickwand-dev imagemagick \
+    # memcached
+    libmemcached-dev
+RUN docker-php-ext-install -j$(nproc) intl
+
+# timezone
+RUN ln -snf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
+ && echo ${TIMEZONE} > /etc/timezone \
+ && echo 'date.timezone="${TIMEZONE}"\n' > ${PHP_INI_DIR}/conf.d/ext-timezone.ini \
+ && echo 'access.log = /var/log/access.log\nerror_log = /var/log/error.log' > ${PHP_INI_DIR}/conf.d/ext-logging.ini \
+ && cp ${PHP_INI_DIR}/php.ini-production ${PHP_INI_DIR}/php.ini
+
+
+
+RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
+ && docker-php-ext-configure gd --with-freetype --with-jpeg \
+ && docker-php-ext-install -j$(nproc) gd
+
+RUN apt-get install -y libpq-dev \
+ && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+ && docker-php-ext-install pgsql pdo_pgsql
+
+ENV EXT_APCU_VERSION=5.1.17
+
+RUN docker-php-source extract \
+ ## ext-opache
+ && docker-php-ext-enable opcache \
+ ## ext-apcu
+ && mkdir -p /usr/src/php/ext/apcu \
+ && curl -fsSL https://github.com/krakjoe/apcu/archive/v${EXT_APCU_VERSION}.tar.gz | tar xvz -C /usr/src/php/ext/apcu --strip 1 \
+ && docker-php-ext-install apcu \
+ ## cleanup
+ && docker-php-source delete
+
+# ext-opcache
+#RUN docker-php-ext-install opcache \
+# && docker-php-ext-enable opcache
+
+# ext-apcu
+#RUN docker-php-ext-configure apcu \
+# && docker-php-ext-install apcu
+
+RUN usermod -u ${PHP_UID} www-data \
+ && mkdir -p /apps \
+ && chown -R www-data /apps
+
+# install composer
+RUN curl -sS https://getcomposer.org/installer | \
+    php -- --install-dir=/usr/local/bin --filename=composer
+
+# install symfony command line application
+RUN curl -sS https://get.symfony.com/cli/installer | bash
+RUN mv ${HOME}/.symfony/bin/symfony /usr/local/bin/symfony
+
+# cleanup
+RUN apt-get -y autoclean \
+ && apt-get -y autoremove \
+ && apt-get -y clean \
+ && rm -rf /var/lib/apt/lists/* \
+ && apt-get update
+
+WORKDIR /apps

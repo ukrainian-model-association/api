@@ -1,0 +1,1217 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block stylesheets %}
+    <link href="https://css.models.org.ua/public/css/flag-icon.min.css" rel="stylesheet">
+    <link href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css"
+          media="all"
+          rel="stylesheet"
+          id="font-awesome-5-kit-css">
+    <link href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css"
+          media="all"
+          rel="stylesheet"
+          id="font-awesome-5-kit-css">
+    <link href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css"
+          media="all"
+          rel="stylesheet"
+          id="font-awesome-5-kit-css">
+    <link href="https://css.models.org.ua/public/css/flag-icon.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          rel="stylesheet"
+          crossorigin="anonymous"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh">
+    <link href="https://css.models.org.ua/main.css" rel="stylesheet">
+    <link href="https://css.models.org.ua/erlte.css" rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        const context = {
+            module: 'home',
+            action: 'index',
+            obj_id: '',
+            static_server: 'https://s1.models.org.ua/',
+            host: 'models.org.ua',
+            user_id: 4,
+            user_fio: '',
+            language: 'ru'
+        };
+    </script>
+    <script type="text/javascript"
+            async=""
+            src="https://www.gstatic.com/recaptcha/releases/61bII03-TtCmSUR7dw9MJF9q/recaptcha__uk.js"
+            style="color: rgb(0, 0, 0);"></script>
+    <script type="application/javascript" src="https://js.models.org.ua/jquery-latest.min.js"></script>
+    <script type="application/javascript" src="https://js.models.org.ua/main.js"></script>
+    <script type="application/javascript" src="https://js.models.org.ua/erlte.js"></script>
+    <script type="application/javascript"
+            src="https://kit.fontawesome.com/7edf9be78e.js"
+            crossorigin="anonymous"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdO1MUUAAAAAPeYMtLpiZdoJVXwq-jEXhXpp6oM"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LdO1MUUAAAAAPeYMtLpiZdoJVXwq-jEXhXpp6oM', {action: 'homepage'});
+        });
+    </script>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>-->
+    <script src="https://models.org.ua/public/js/app.js"></script>
+    <script type="application/javascript" src="https://models.org.ua/public/js/app/home/index.js"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="grid-container">
+            <div></div>
+            <div>
+                <!-- START HEAD -->
+                <div class="fs10 px-3 pt-2 pb-1">
+                    <div class="left" style="width: 262px;">
+                        <a href="/">
+                            <img src="https://models.org.ua/logo.png" alt="logo" style="width: 338px">
+                        </a>
+                    </div>
+                    <!--<div class="left mt5" style="margin-top: -10px;">
+                        <a href="/people"><img src="https://models.org.ua/banners/ru/banner.gif" /></a>
+                    </div>-->
+                    <!--<div class="left mt5" style="margin-top: 3px; color: #000000; width: 520px; text-align: center; font-size: 21px; font-style: italic;">-->
+                    <!--	--><!--<br />-->    <!--</div>-->
+                    <div class="right" style="width: 172px; margin-top: 14px">
+                        <div class="languages_box bold aright fs11">
+                            рус | <a href="/sign/language?code=en">en</a>
+                        </div>
+                        <div class="fs12 login_form" style="text-align: right; width: 172px;">
+                            <div class="mb5">
+                                <a id="user-link"
+                                   href="/profile?id=4"
+                                   class="fs14"
+                                   style="border-bottom: 1px dotted #000000;">Артем Морозов</a>
+                            </div>
+                            <a class="cgray"
+                               href="/adminka/user_manager?filter=byself-new">Заявки</a>&nbsp;<b class="cgray">(31)</b> |
+                            <a class="cgray"
+                               href="/adminka/user_manager&amp;status=21&amp;filter=all&amp;active=true">Активные</a>&nbsp;<b
+                                    class="cgray">(29)</b><br>
+
+                        </div>
+
+                        <style>
+                            #profile-menu-tooltip-box {
+                                position: absolute;
+                                z-index: 1;
+                            }
+
+                            #profile-menu-tooltip {
+                                width: 120px;
+                                text-align: center;
+                                background: none repeat scroll 0% 0% #b0b7c5;
+                                color: white;
+                                font-size: 12px;
+                                box-shadow: 5px 5px 5px #AAAAAA;
+                                z-index: 999;
+                            }
+
+                            #profile-menu-tooltip a {
+                                color: white;
+                                text-decoration: underline;
+                            }
+
+                            #profile-menu-tooltip a:hover {
+                                text-decoration: none;
+                            }
+                        </style>
+                        <div id="profile-menu-tooltip-box" class="hide">
+                            <div style="background: url('/arrow_top.png') no-repeat center 0 scroll transparent; height: 4px;"></div>
+                            <div class="p10" id="profile-menu-tooltip">
+
+                                <a href="/profile?id=4">Профиль</a><br>
+                                <a href="/messages">Сообщения</a>&nbsp;<br>
+                                *<a href="/adminka/user_manager?filter=byself-new">Админка</a> <br>
+                                *<a href="/forum">Форум</a><br>
+
+                                <a href="javascript:void(0);" id="logout">Выйти</a><br>
+
+                            </div>
+                        </div>
+
+                        <script type="text/javascript">
+                            let show = false;
+                            const tooltip = $('#profile-menu-tooltip-box');
+                            $('#user-link').hover(
+                                function () {
+                                    tooltip
+                                        .removeClass('hide')
+                                        .css({
+                                            'left': ($(this).position().left - 15) + 'px',
+                                            'top': ($(this).position().top + $(this).innerHeight() + 2) + 'px'
+                                        });
+                                },
+                                function () {
+                                    setTimeout("{if(!show) tooltip.addClass('hide')}", 100);
+                                }
+                            );
+                            tooltip.hover(
+                                function () {
+                                    show = true;
+                                },
+                                function () {
+                                    $(this).addClass('hide');
+                                    show = false;
+                                }
+                            );
+                            $(document).ready(function () {
+                                $("#logout").click(function () {
+                                    $.post("/sign/logout", {}, function (data) {
+                                        if (data.success)
+                                            location.reload();
+                                    }, "json");
+                                });
+                            });
+                        </script>
+                        <form action="/sign/restorepasswd"
+                              class="restore_form hide"
+                              id="restore_form"
+                              onsubmit="return false;">
+                            <div class="mb5">
+                                <input type="text"
+                                       id="restore_email"
+                                       name="restore_email"
+                                       style="width: 100%; color: #B1B7C5;"
+                                       value="Введите е-mail">
+                            </div>
+                            <div class="left pt5">
+                                <a href="javascript:void(0);"
+                                   onclick="$('#restore_form, .login_form').toggleClass('hide');"
+                                   style="color: #B1B7C5;">Вход</a>
+                            </div>
+                            <div class="right pt5">
+                                <input type="submit" id="restore" name="restore" value="Войти" class="hide">
+                                <a href="javascript:void(0);"
+                                   id="restore-1"
+                                   class="ucase bold"
+                                   style="color: #000000">Отправить</a>
+                            </div>
+                        </form>
+                        <script>
+                            $(function () {
+                                $('#restore_email').focus(function () {
+                                    if ($(this).val() === 'Введите е-mail')
+                                        $(this).val('');
+                                });
+                                const restore_form = new Form('restore_form');
+                                restore_form.onSuccess = function (resp) {
+                                    Popup.show();
+                                    Popup.setTitle('<div class="fs14 pl10 pr10">Восстановление пароля</div>');
+                                    if (resp.success) {
+                                        Popup.setHtml('<div class="acenter fs12 tahoma">Новый пароль выслан на указанный e-mail</div><div class="acenter mt20"><input type="button" value="Закрыть" onClick="Popup.close()"/></div>');
+                                    } else {
+                                        Popup.setHtml('<div class="acenter fs12 tahoma">' + resp.reason + '</div><div class="acenter mt20"><input type="button" value="Закрыть" onClick="Popup.close()"/></div>');
+                                    }
+                                    Popup.position();
+                                    setTimeout("Popup.close()", 3500);
+                                }
+                                $('#restore-1').click(function () {
+                                    restore_form.send();
+                                });
+                            });
+                        </script>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!-- END HEAD -->
+
+                <!-- START MENU -->
+
+                <style type="text/css">
+                    div.ddsmoothmenu ul:first-child {
+                        display: table;
+                        width: 100%
+                    }
+
+                    div.ddsmoothmenu ul li {
+                        float: none;
+                        display: table-cell;
+                        margin: 0px;
+                        padding: 0px;
+                    }
+
+                    div.invite_button {
+                        background: #000000;
+                        height: 31px;
+                        line-height: 28px;
+                        font-weight: bold;
+                        font-size: 14px;
+                        color: white;
+                        text-align: center;
+                        border-left: 1px solid #000000;
+                        /*box-shadow: -1px 0 0px #E797BA;*/
+                        text-transform: uppercase;
+                    }
+
+                    div.invite_button:hover {
+                        background-color: #212121;
+                        /*background: url('/buttons/invite/bg2.png') repeat-x;*/
+                    }
+                </style>
+
+                <div>
+                    <div class="ddsmoothmenu left"
+                         id="smoothmenu"
+                         style="background: #000000; width: 827px; height: 31px">
+                        <ul>
+                            <li style="z-index: 100;">
+                                <a href="/page?link=about">Ассоциация<img src="https://models.org.ua/ui/down_arrow.png"
+                                                                          class="downarrowclass"
+                                                                          style="border:0;"></a>
+                                <ul style="display: none; box-shadow: rgb(170, 170, 170) 5px 5px 5px; visibility: visible;">
+                                    <li><a href="/page?link=Who_we_are">Ассоциация</a></li>
+                                    <li><a href="/page?link=for_models">Моделям</a></li>
+                                    <li><a href="/page?link=for_agencies">Агентствам</a></li>
+                                    <li><a href="/page?link=membership">Членство</a></li>
+                                    <li><a href="/page?link=partnership">Партнерство</a></li>
+                                </ul>
+                            </li>
+                            <li style="z-index: 99;">
+                                <a href="/people">Модели<img src="https://models.org.ua/ui/down_arrow.png"
+                                                             class="downarrowclass"
+                                                             style="border:0;"></a>
+                                <ul style="display: none; box-shadow: rgb(170, 170, 170) 5px 5px 5px; visibility: visible;">
+                                    <li><a href="/people">Каталог моделей</a></li>
+                                    <li><a href="/search">Поиск</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/agency/list">Агентства</a>
+                            </li>
+                            <li>
+                                <a href="/journals/list">Журналы</a>
+                            </li>
+                            <li>
+                                <a href="/page?link=projects">Проекты</a>
+                            </li>
+                            <li>
+                                <a href="/page?link=discount">Дисконт</a>
+                            </li>
+                            <li>
+                                <a href="/library">Библиотека</a>
+                            </li>
+                            <li>
+                                <a href="/contacts">Контакты</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="invite_button right pointer"
+                         onclick="window.location='/sign/registration'"
+                         style="width: 193px;">Регистрация
+                    </div>
+                    <!--<div class="invite_button right pointer" onClick ="window.location='/invite'" style="width: 210px;">Пригласи подругу</div>-->
+                    <div class="clear"></div>
+                </div>
+
+                <script type="text/javascript">
+                    ddsmoothmenu.init({
+                        mainmenuid: "smoothmenu", //menu DIV id
+                        orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+                        classname: 'ddsmoothmenu left', //class added to menu's outer DIV
+                        //customtheme: ["#1c5a80", "#18374a"],
+                        contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+                    });
+                </script>
+                <!-- END MENU -->
+
+                <div>
+                    <div class="content">
+                        <div>
+                            <div class="small-title left square_p">
+                                <a href="/people?status=legendary">Самые успешные</a>
+                            </div>
+                            <div class="register-link right">
+                                <a href="/sign/registration?set=member"
+                                   class="cpurple">Зарегистрироваться в каталоге</a>
+                            </div>
+                            <div class="register-link right">
+                                <a href="/sign/registration" class="cpurple">Хочу стать моделью</a>
+                            </div>
+
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="main-page-gallery">
+                            <div class="image-box">
+                                <a href="/profile?id=134" data-user-id="134">
+                                    <img src="https://models.org.ua/imgserve?pid=21033&amp;w=373&amp;h=373&amp;x=5&amp;y=168&amp;z=crop">
+
+
+                                    <div data-tooltip="134"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Снежана Онопко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=73" data-user-id="73">
+                                    <img src="https://models.org.ua/imgserve?pid=993&amp;w=513&amp;h=513&amp;x=18&amp;y=53&amp;z=crop">
+
+
+                                    <div data-tooltip="73"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Алла Костромичева
+                                    </div>
+                                </a>
+                                <a href="/profile?id=587" data-user-id="587">
+                                    <img src="https://models.org.ua/imgserve?pid=21029&amp;w=204&amp;h=204&amp;x=428&amp;y=87&amp;z=crop">
+
+
+                                    <div data-tooltip="587"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px; display: none; top: 194px; left: 377px; z-index: 999;">Алина Байкова
+                                    </div>
+                                </a>
+                                <a href="/profile?id=136" data-user-id="136">
+                                    <img src="https://models.org.ua/imgserve?pid=1162&amp;w=264&amp;h=264&amp;x=18&amp;y=24&amp;z=crop">
+
+
+                                    <div data-tooltip="136"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Татьяна Бражник
+                                    </div>
+                                </a>
+                                <a href="/profile?id=22" data-user-id="22">
+                                    <img src="https://models.org.ua/imgserve?pid=21216&amp;w=290&amp;h=290&amp;x=44&amp;y=188&amp;z=crop">
+
+
+                                    <div data-tooltip="22"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Наталия Чабоненко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=23" data-user-id="23">
+                                    <img src="https://models.org.ua/imgserve?pid=21017&amp;w=525&amp;h=525&amp;x=65&amp;y=100&amp;z=crop">
+
+
+                                    <div data-tooltip="23"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Виктория Сасонкина
+                                    </div>
+                                </a>
+                                <a href="/profile?id=139" data-user-id="139">
+                                    <img src="https://models.org.ua/imgserve?pid=1405&amp;w=269&amp;h=269&amp;x=78&amp;y=190&amp;z=crop">
+
+
+                                    <div data-tooltip="139"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Алёна Османова
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2158" data-user-id="2158">
+                                    <img src="https://models.org.ua/imgserve?pid=21364&amp;w=352&amp;h=352&amp;x=164&amp;y=164&amp;z=crop">
+
+
+                                    <div data-tooltip="2158"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Настя Абрамова
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2230" data-user-id="2230">
+                                    <img src="https://models.org.ua/imgserve?pid=21716&amp;w=519&amp;h=519&amp;x=36&amp;y=249&amp;z=crop">
+
+
+                                    <div data-tooltip="2230"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Ирина Кравченко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=18" data-user-id="18">
+                                    <img src="https://models.org.ua/imgserve?pid=21217&amp;w=374&amp;h=374&amp;x=394&amp;y=220&amp;z=crop">
+
+
+                                    <div data-tooltip="18"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Диана Ковальчук
+                                    </div>
+                                </a>
+                                <a href="/profile?id=138" data-user-id="138">
+                                    <img src="https://models.org.ua/imgserve?pid=21971&amp;w=652&amp;h=652&amp;x=150&amp;y=309&amp;z=crop"
+                                         style="margin-right: 0px;">
+
+
+                                    <div data-tooltip="138"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Наталья Пирожкова
+                                    </div>
+                                </a>
+                                <a href="/profile?id=38" data-user-id="38">
+                                    <img src="https://models.org.ua/imgserve?pid=21215&amp;w=350&amp;h=350&amp;x=265&amp;y=265&amp;z=crop">
+
+
+                                    <div data-tooltip="38"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Ольга Куриленко
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div class="clear"></div>
+                        <div>
+                            <div class="small-title left square_p">
+                                <a href="/people?status=successful">Успешные</a>
+                            </div>
+
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="main-page-gallery">
+                            <div class="image-box">
+                                <a href="/profile?id=2133" data-user-id="2133">
+                                    <img src="https://models.org.ua/imgserve?pid=21019&amp;w=202&amp;h=202&amp;x=159&amp;y=131&amp;z=crop">
+
+
+                                    <div data-tooltip="2133"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Кейт Андервуд
+                                    </div>
+                                </a>
+                                <a href="/profile?id=19" data-user-id="19">
+                                    <img src="https://models.org.ua/imgserve?pid=2089&amp;w=224&amp;h=224&amp;x=28&amp;y=37&amp;z=crop">
+
+
+                                    <div data-tooltip="19"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Александра Безносюк
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2134" data-user-id="2134">
+                                    <img src="https://models.org.ua/imgserve?pid=21034&amp;w=571&amp;h=571&amp;x=80&amp;y=164&amp;z=crop">
+
+
+                                    <div data-tooltip="2134"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px; display: none; top: 317px; left: 374px; z-index: 999;">Валерия Караман
+                                    </div>
+                                </a>
+                                <a href="/profile?id=58" data-user-id="58">
+                                    <img src="https://models.org.ua/imgserve?pid=21978&amp;w=299&amp;h=299&amp;x=125&amp;y=125&amp;z=crop">
+
+
+                                    <div data-tooltip="58"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Дарья Семенченко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2140" data-user-id="2140">
+                                    <img src="https://models.org.ua/imgserve?pid=21154&amp;w=320&amp;h=320&amp;x=154&amp;y=189&amp;z=crop">
+
+
+                                    <div data-tooltip="2140"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Элизабет Трейгерман
+                                    </div>
+                                </a>
+                                <a href="/profile?id=40" data-user-id="40">
+                                    <img src="https://models.org.ua/imgserve?pid=646&amp;w=223&amp;h=223&amp;x=126&amp;y=23&amp;z=crop">
+
+
+                                    <div data-tooltip="40"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Мария Тельная
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2139" data-user-id="2139">
+                                    <img src="https://models.org.ua/imgserve?pid=21114&amp;w=467&amp;h=467&amp;x=46&amp;y=24&amp;z=crop">
+
+
+                                    <div data-tooltip="2139"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Полина Парк
+                                    </div>
+                                </a>
+                                <a href="/profile?id=81" data-user-id="81">
+                                    <img src="https://models.org.ua/imgserve?pid=501&amp;w=354&amp;h=354&amp;x=0&amp;y=30&amp;z=crop">
+
+
+                                    <div data-tooltip="81"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Алёна Авраменко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2225" data-user-id="2225">
+                                    <img src="https://models.org.ua/imgserve?pid=21711&amp;w=457&amp;h=457&amp;x=87&amp;y=118&amp;z=crop">
+
+
+                                    <div data-tooltip="2225"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Катя Никонова
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2182" data-user-id="2182">
+                                    <img src="https://models.org.ua/imgserve?pid=21522&amp;w=554&amp;h=554&amp;x=54&amp;y=199&amp;z=crop">
+
+
+                                    <div data-tooltip="2182"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Ирина Куценко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2151" data-user-id="2151">
+                                    <img src="https://models.org.ua/imgserve?pid=21275&amp;w=381&amp;h=381&amp;x=267&amp;y=228&amp;z=crop"
+                                         style="margin-right: 0px;">
+
+
+                                    <div data-tooltip="2151"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Марина Полканова
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2142" data-user-id="2142">
+                                    <img src="https://models.org.ua/imgserve?pid=21160&amp;w=589&amp;h=589&amp;x=171&amp;y=98&amp;z=crop">
+
+
+                                    <div data-tooltip="2142"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Инна Фисун
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div class="clear"></div>
+                        <div>
+                            <div class="small-title left square_p">
+                                <a href="/people?status=perspective">Перспективные</a>
+                            </div>
+
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="main-page-gallery">
+                            <div class="image-box">
+                                <a href="/profile?id=2176" data-user-id="2176">
+                                    <img src="https://models.org.ua/imgserve?pid=21516&amp;w=666&amp;h=666&amp;x=118&amp;y=174&amp;z=crop">
+
+
+                                    <div data-tooltip="2176"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Антонина Васильченко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2181" data-user-id="2181">
+                                    <img src="https://models.org.ua/imgserve?pid=21521&amp;w=718&amp;h=718&amp;x=73&amp;y=69&amp;z=crop">
+
+
+                                    <div data-tooltip="2181"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Настя Саленко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2187" data-user-id="2187">
+                                    <img src="https://models.org.ua/imgserve?pid=21526&amp;w=960&amp;h=960&amp;x=0&amp;y=82&amp;z=crop">
+
+
+                                    <div data-tooltip="2187"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Анна Вивчар
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2130" data-user-id="2130">
+                                    <img src="https://models.org.ua/imgserve?pid=20852&amp;w=261&amp;h=261&amp;x=389&amp;y=20&amp;z=crop">
+
+
+                                    <div data-tooltip="2130"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Юлия Волкова
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2120" data-user-id="2120">
+                                    <img src="https://models.org.ua/imgserve?pid=21945&amp;w=209&amp;h=209&amp;x=113&amp;y=169&amp;z=crop">
+
+
+                                    <div data-tooltip="2120"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Катерина Козлова
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2122" data-user-id="2122">
+                                    <img src="https://models.org.ua/imgserve?pid=20782&amp;w=277&amp;h=277&amp;x=109&amp;y=258&amp;z=crop">
+
+
+                                    <div data-tooltip="2122"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Ангелина Савчук
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2125" data-user-id="2125">
+                                    <img src="https://models.org.ua/imgserve?pid=20805&amp;w=152&amp;h=152&amp;x=176&amp;y=227&amp;z=crop">
+
+
+                                    <div data-tooltip="2125"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Лика Коротаева
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2183" data-user-id="2183">
+                                    <img src="https://models.org.ua/imgserve?pid=21523&amp;w=259&amp;h=259&amp;x=47&amp;y=85&amp;z=crop">
+
+
+                                    <div data-tooltip="2183"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Алекса Нагайникова
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2268" data-user-id="2268">
+                                    <img src="https://models.org.ua/imgserve?pid=21833&amp;w=250&amp;h=250&amp;x=165&amp;y=55&amp;z=crop">
+
+
+                                    <div data-tooltip="2268"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Валерия Лихман
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2192" data-user-id="2192">
+                                    <img src="https://models.org.ua/imgserve?pid=21532&amp;w=250&amp;h=250&amp;x=83&amp;y=75&amp;z=crop">
+
+
+                                    <div data-tooltip="2192"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Таня Кизко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2288" data-user-id="2288">
+                                    <img src="https://models.org.ua/imgserve?pid=21965&amp;w=213&amp;h=213&amp;x=94&amp;y=62&amp;z=crop"
+                                         style="margin-right: 0px;">
+
+
+                                    <div data-tooltip="2288"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Анна Фесо
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2280" data-user-id="2280">
+                                    <img src="https://models.org.ua/imgserve?pid=21903&amp;w=401&amp;h=401&amp;x=287&amp;y=45&amp;z=crop">
+
+
+                                    <div data-tooltip="2280"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Лика Коротаева
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div class="clear"></div>
+                        <div>
+                            <div class="small-title left square_p">
+                                <a href="/people?status=new-face">Новые лица</a>
+                            </div>
+
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="main-page-gallery">
+                            <div class="image-box">
+                                <a href="/profile?id=2278" data-user-id="2278">
+                                    <img src="https://models.org.ua/imgserve?pid=21952&amp;w=358&amp;h=358&amp;x=384&amp;y=210&amp;z=crop">
+
+
+                                    <div data-tooltip="2278"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Александра Заволокина
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2117" data-user-id="2117">
+                                    <img src="https://models.org.ua/imgserve?pid=20765&amp;w=320&amp;h=320&amp;x=150&amp;y=128&amp;z=crop">
+
+
+                                    <div data-tooltip="2117"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Наталия Олияненко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2201" data-user-id="2201">
+                                    <img src="https://models.org.ua/imgserve?pid=21617&amp;w=184&amp;h=184&amp;x=446&amp;y=109&amp;z=crop">
+
+
+                                    <div data-tooltip="2201"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Алиса Никитенко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2118" data-user-id="2118">
+                                    <img src="https://models.org.ua/imgserve?pid=20840&amp;w=176&amp;h=176&amp;x=291&amp;y=48&amp;z=crop">
+
+
+                                    <div data-tooltip="2118"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Екатерина Почернина
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2111" data-user-id="2111">
+                                    <img src="https://models.org.ua/imgserve?pid=21527&amp;w=685&amp;h=685&amp;x=73&amp;y=137&amp;z=crop">
+
+
+                                    <div data-tooltip="2111"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Дарина Швец
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2115" data-user-id="2115">
+                                    <img src="https://models.org.ua/imgserve?pid=20766&amp;w=553&amp;h=553&amp;x=276&amp;y=92&amp;z=crop">
+
+
+                                    <div data-tooltip="2115"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Анастасия Гончарова
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2166" data-user-id="2166">
+                                    <img src="https://models.org.ua/imgserve?pid=21407&amp;w=600&amp;h=600&amp;x=183&amp;y=174&amp;z=crop">
+
+
+                                    <div data-tooltip="2166"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Ксения Явтушенко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2189" data-user-id="2189">
+                                    <img src="https://models.org.ua/imgserve?pid=21529&amp;w=288&amp;h=288&amp;x=68&amp;y=50&amp;z=crop">
+
+
+                                    <div data-tooltip="2189"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Анастасия Панасенко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2114" data-user-id="2114">
+                                    <img src="https://models.org.ua/imgserve?pid=21951&amp;w=543&amp;h=543&amp;x=256&amp;y=389&amp;z=crop">
+
+
+                                    <div data-tooltip="2114"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Алина Варакута
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2124" data-user-id="2124">
+                                    <img src="https://models.org.ua/imgserve?pid=20847&amp;w=624&amp;h=624&amp;x=175&amp;y=126&amp;z=crop">
+
+
+                                    <div data-tooltip="2124"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Катерина Мацарская
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2175" data-user-id="2175">
+                                    <img src="https://models.org.ua/imgserve?pid=21515&amp;w=743&amp;h=743&amp;x=23&amp;y=59&amp;z=crop"
+                                         style="margin-right: 0px;">
+
+
+                                    <div data-tooltip="2175"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Анастасия Мищенко
+                                    </div>
+                                </a>
+                                <a href="/profile?id=2127" data-user-id="2127">
+                                    <img src="https://models.org.ua/imgserve?pid=20811&amp;w=469&amp;h=469&amp;x=213&amp;y=115&amp;z=crop">
+
+
+                                    <div data-tooltip="2127"
+                                         class="hide"
+                                         style="position: absolute; background: black; color: white; border-radius: 5px; font-size: 11px; padding: 5px 10px">Ольга Шацкая
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div class="clear"></div>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                $('div.main-page-gallery > div.image-box > a[data-user-id] > img')
+                                    .mouseout(function (e) {
+                                        $(e.target.parentNode.querySelector('div[data-tooltip]')).hide();
+                                    })
+                                    .mousemove(function (e) {
+                                        $(e.target.parentNode.querySelector('div[data-tooltip]'))
+                                            .show()
+                                            .css({
+                                                'top': e.pageY + 16,
+                                                'left': e.pageX + 16,
+                                                'zIndex': '999'
+                                            });
+                                    })
+
+                            });
+                        </script>
+
+                        <div class="px-3">
+                            <div class="row">
+                                <div class="col small-title square_p pl10">
+                                    <a href="/updates">Новые фотографии</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="grid auto-flow-column justify-content-between"
+                                     style="grid-template-columns: repeat(4, 240px)">
+                                    <div style="position: relative">
+                                        <img alt=""
+                                             src="https://models.org.ua/imgserve?pid=21970&amp;h=320"
+                                             class="img-fluid"
+                                             style="object-fit: cover; width: 100%; height: 320px">
+                                    </div>
+                                    <div style="position: relative">
+                                        <img alt=""
+                                             src="https://models.org.ua/imgserve?pid=11482&amp;h=320"
+                                             class="img-fluid"
+                                             style="object-fit: cover; width: 100%; height: 320px">
+                                    </div>
+                                    <div style="position: relative">
+                                        <img alt=""
+                                             src="https://models.org.ua/imgserve?pid=11446&amp;h=320"
+                                             class="img-fluid"
+                                             style="object-fit: cover; width: 100%; height: 320px">
+                                    </div>
+                                    <div style="position: relative">
+                                        <img alt=""
+                                             src="https://models.org.ua/imgserve?pid=11481&amp;h=320"
+                                             class="img-fluid"
+                                             style="object-fit: cover; width: 100%; height: 320px">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid auto-flow-column auto-fit cg-3 mt-2">
+                            <div class="brief">
+                                <a href="/people" class="brief-title first-letter squared">Каталог моделей</a>
+                                <a href="/people">
+                                    <img alt="Каталог моделей"
+                                         src="https://models.org.ua/home/model-catalog.jpg"
+                                         class="brief-img w-100"
+                                         style="height: 400px">
+                                </a>
+                            </div>
+
+                            <div class="brief">
+                                <a href="/polls" class="brief-title first-letter squared">Рейтинг популярности</a>
+                                <div class="position-relative" style="height: 400px">
+                                    <div class="h6 py-2 text-center">Оцени модель, кто лучше?</div>
+                                    <div class="grid cg-1"
+                                         style="grid-template-columns: repeat(2, 1fr); grid-template-rows: 1fr">
+                                        <div>
+                                            <img src="https://models.org.ua/imgserve?pid=2479&amp;w=160"
+                                                 alt="..."
+                                                 class="w-100"
+                                                 style="height: 250px; object-fit: cover">
+                                        </div>
+                                        <div>
+                                            <img src="https://models.org.ua/imgserve?pid=21714&amp;w=160"
+                                                 alt="..."
+                                                 class="w-100"
+                                                 style="height: 250px; object-fit: cover">
+                                        </div>
+                                        <div class="text-center" style="margin-top: -1.5rem">
+            <button class="border-0" style="background-color: black; width: 3rem; height: 3rem">
+                <i class="fas fa-thumbs-up text-white" style="font-size: 150%;" aria-hidden="true"></i>
+            </button>
+                                        </div>
+                                        <div class="text-center" style="margin-top: -1.5rem">
+            <button class="border-0" style="background-color: black; width: 3rem; height: 3rem">
+                <i class="fas fa-thumbs-up text-white" style="font-size: 150%;" aria-hidden="true"></i>
+            </button>
+                                        </div>
+                                    </div>
+                                    <div class="text-center position-absolute w-100" style="bottom: 0">
+                                        <button class="text-uppercase border-0 text-white px-3 py-2"
+                                                onclick="window.location = '/polls';"
+                                                style="background-color: black">Смотреть рейтинг</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="brief">
+                                <a href="/agency/list" class="brief-title first-letter squared">Каталог агенств</a>
+                                <a href="/agency/list">
+                                    <img alt="Рейтинг журналов"
+                                         class="brief-img w-100"
+                                         src="https://models.org.ua/home/agency-catalog.jpg"
+                                         style="height: 400px">
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <div class="home-index-posts mt-1 mb-3">
+                            <div class="small-title square_p pl10 mb5">
+                                <a href="/news?type=2">Публикации</a>
+                            </div>
+                            <div class="grid g-3">
+                                <article style="background-image: url('https://img.models.org.ua/m/15615822966.jpg')">
+                                    <div class="post-body">
+                                        <a href="/news/view?id=156"
+                                           class="post-title"> Валерия Караман рассказала о съемках в фильме "Маяк", лукизме и экоактивности </a>
+                                    </div>
+                                    <div class="post-body w-auto px-0 py-3" style="right: 1rem">
+                                        <div class="badge badge-dark">21.02.2020</div>
+                                    </div>
+                                </article>
+                                <article style="background-image: url('https://img.models.org.ua/m/14815762375.jpg')">
+                                    <div class="post-body">
+                                        <a href="/news/view?id=148"
+                                           class="post-title">Анастасия Абрамова о шоу Dolce &amp; Gabbana</a>
+                                    </div>
+                                    <div class="post-body w-auto px-0 py-3" style="right: 1rem">
+                                        <div class="badge badge-dark">13.12.2019</div>
+                                    </div>
+                                </article>
+                                <article style="background-image: url('https://img.models.org.ua/m/14715757228.jpg')">
+                                    <div class="post-body">
+                                        <a href="/news/view?id=147" class="post-title">Интервью с Валерией Караман</a>
+                                    </div>
+                                    <div class="post-body w-auto px-0 py-3" style="right: 1rem">
+                                        <div class="badge badge-dark">07.12.2019</div>
+                                    </div>
+                                </article>
+                                <article style="background-image: url('https://img.models.org.ua/m/13813480605.jpg')">
+                                    <div class="post-body">
+                                        <a href="/news/view?id=138"
+                                           class="post-title"> Как выработать свой собственный стиль</a>
+                                    </div>
+                                    <div class="post-body w-auto px-0 py-3" style="right: 1rem">
+                                        <div class="badge badge-dark">19.09.2012</div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="grid auto-flow-column auto-fit cg-3 mt-3 d-none">
+
+                            <div class="brief">
+                                <div class="small-title square_p pl10 mb5">
+                                    <a href="/news?type=1">Новости</a>
+                                </div>
+                                <div class="brief-header">
+                                    <a href="/news/view?id=154"
+                                       class="brief-title first-letter detached">МАША ШЕВЧЕНКО О ПОКАЗЕ JEAN PAUL GAULTIER</a>
+                                </div>
+                                <div class="mt-1">
+                                    <div class="text-muted italic mb-1">05.02.2020</div>
+                                    <div>
+                                        <div>
+                                            <a href="/news/view?id=154">
+                                                <img alt="МАША ШЕВЧЕНКО О ПОКАЗЕ JEAN PAUL GAULTIER"
+                                                     src="https://img.models.org.ua/m/15415809068.jpg"
+                                                     class="brief-img"> </a>
+                                        </div>
+                                        <div class="fs14 mt10 mb10 bold ucase acenter">
+                                            <a href="/news?type=1" class="cpurple underline">Все новости</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="brief">
+                                <div class="small-title square_p pl10 mb5">
+                                    <a href="/news?type=2">Публикации</a>
+                                </div>
+                                <div class="brief-header">
+                                    <a href="/news/view?id=156"
+                                       class="brief-title first-letter detached"> Валерия Караман рассказала о съемках в фильме "Маяк", лукизме и экоактивности </a>
+                                </div>
+                                <div class="mt-1">
+                                    <div class="text-muted italic mb-1">21.02.2020</div>
+                                    <div>
+                                        <div>
+                                            <a href="/news/view?id=156">
+                                                <img alt=" Валерия Караман рассказала о съемках  в фильме "
+                                                     Маяк",="" лукизме="" и="" экоактивности="" "="" src="" class="brief-img">
+                                            </a>
+                                        </div>
+                                        <div class="fs14 mt10 mb10 bold ucase acenter">
+                                            <a href="/news?type=2" class="cpurple underline">Все публикации</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="brief">
+                                <div class="small-title square_p pl10 mb5">
+                                    <a href="/news?type=3">Анонсы</a>
+                                </div>
+                                <div class="brief-header">
+                                    <a href="/news/view?id=150"
+                                       class="brief-title first-letter detached">UKRAINIAN FASHION WEEK 2020</a>
+                                </div>
+                                <div class="mt-1">
+                                    <div class="text-muted italic mb-1">13.12.2019</div>
+                                    <div>
+                                        <div>
+                                            <a href="/news/view?id=150"> <img alt="UKRAINIAN FASHION WEEK 2020"
+                                                                              src="https://img.models.org.ua/m/15015770991.jpg"
+                                                                              class="brief-img"> </a>
+                                        </div>
+                                        <div class="fs14 mt10 mb10 bold ucase acenter">
+                                            <a href="/news?type=3" class="cpurple underline">Все анонсы</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <style type="text/css">
+                            div.updates div.update {
+                                float: left;
+                                margin-right: 35px;
+                            }
+
+                            div.updates div.update:last-child {
+                                margin-right: 0px;
+                            }
+
+                            div.updates div.update div.photo {
+                                width: 220px;
+                                height: 295px;
+                            }
+
+                            div.updates div.update div.desc {
+                                margin-top: 0px;
+                                padding: 10px;
+                                background: rgba(0, 0, 0, 0.75);
+                                font-size: 12px;
+                                font-weight: bold;
+                            }
+                        </style>
+
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                $("div.update").mouseenter(function (e) {
+                                    var desc = $("div.desc", this);
+
+                                    if (typeof $(desc).attr("h") == "undefined")
+                                        $(desc).attr("h", $(desc).height());
+
+                                    var height = $(desc).attr("h");
+                                    var margin = parseInt(height) + parseInt($(desc).css("padding-top")) * 2;
+
+                                    $(desc)
+                                        .animate({
+                                            "margin-top": "-" + margin + "px"
+                                        }, 256);
+                                })
+                                    .mouseleave(function (e) {
+                                        var desc = $("div.desc", this);
+
+                                        $(desc)
+                                            .animate({
+                                                "margin-top": "0px"
+                                            }, 256);
+                                    });
+
+                                $("div.update div.photo").click(function () {
+                                    var photo = $(this);
+                                    var category = $(this).attr("category");
+                                    var step = parseInt($(this).attr("step")) + 1;
+                                    $(this).attr("step", step);
+
+                                    $.post("/home", {
+                                        "act": "get_next_update",
+                                        "category": category,
+                                        "step": step
+                                    }, function (response) {
+                                        if (response.success) {
+                                            $(photo).css("background", "url('/imgserve?pid=" + response.image + "&h=295') center");
+                                            $(photo).next().html(response.user_name);
+                                        }
+                                    }, "json");
+                                });
+                            });
+                        </script>
+
+                        <div id="popup_image_box"
+                             class="hide"
+                             style="position:absolute; background: #fff; padding: 5px; -moz-box-shadow: 0 0 5px 1px #9CA1AE;">
+                            <a href="/"><img src="" style="width: 90px;"></a>
+                        </div>
+                        <script>
+                            jQuery(document).ready(function ($) {
+                                // $('.image-box').find('img').hover(
+                                //     function () {
+                                //         $('#popup_image_box img').attr('src', $(this).attr('src'));
+                                //         $('#popup_image_box a').attr('href', $(this).parent().attr('href'));
+                                //
+                                //         $('#popup_image_box').css('left', ($(this).position().left - 10)).css('top', ($(this).position().top - 7));
+                                //         $('#popup_image_box').removeClass('hide');
+                                //     },
+                                //     function () {}
+                                // );
+                                // $('#popup_image_box').hover(function () {}, function () {
+                                //     $(this).addClass('hide');
+                                //     $('#popup_image_box img').attr('src', '');
+                                // });
+                            });
+
+                            function show_info() {
+                                Popup.show();
+                                Popup.setHtml('Вы уже за всех проголосовали<br/><div class="mt5 acenter"><a href="/polls/rating?type=1" class="mt5 fs12"><i>Смотреть рейтинг</i></a></div><input value="Закрыть" type="button" class="mt10" onClick="Popup.close(300)"/>');
+                                Popup.position();
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+        </div>
+    </div>
+    <div class="footer">
+        <div style="width: 1000px; margin: 0px auto; padding: 0px;" class="footer_box">
+            <div class="footer_logo left">
+                <img src="https://models.org.ua/ru/logo_f.png" class="left">
+            </div>
+            <div class="links left">
+                <a href="/page?link=about">
+                    Ассоциация </a>
+                <a href="/people">
+                    Модели </a>
+                <a href="/agency/list">
+                    Агентства </a>
+                <a href="/journals/list">
+                    Журналы </a>
+                <a href="/page?link=projects">
+                    Проекты </a>
+                <a href="/page?link=discount">
+                    Дисконт </a>
+                <a href="/library">
+                    Библиотека </a>
+                <a href="/contacts">
+                    Контакты </a>
+                <a href="/feedback">Обратная связь</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+
+    <div>
+        <div class="grecaptcha-badge"
+             data-style="bottomright"
+             style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;">
+            <div class="grecaptcha-logo">
+                <iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdO1MUUAAAAAPeYMtLpiZdoJVXwq-jEXhXpp6oM&amp;co=aHR0cHM6Ly9tb2RlbHMub3JnLnVhOjQ0Mw..&amp;hl=uk&amp;v=61bII03-TtCmSUR7dw9MJF9q&amp;size=invisible&amp;cb=6crzy22kf340"
+                        width="256"
+                        height="60"
+                        role="presentation"
+                        name="a-8uicaxcl3q51"
+                        frameborder="0"
+                        scrolling="no"
+                        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
+            </div>
+            <div class="grecaptcha-error"></div>
+            <textarea id="g-recaptcha-response-100000"
+                      name="g-recaptcha-response"
+                      class="g-recaptcha-response"
+                      style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+        </div>
+        <iframe style="display: none;"></iframe>
+    </div>
+{% endblock %}

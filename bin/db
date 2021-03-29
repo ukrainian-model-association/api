@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+DOCKER_HOST='ssh://shevchenko-production' \
+  docker exec -it -u postgres modelsua-db psql "$@"
