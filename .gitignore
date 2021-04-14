@@ -1,4 +1,4 @@
-#/.idea/
+/.idea/
 /.env.local
 /.env.local.php
 /.env.*.local
@@ -9,4 +9,5 @@
 /.phpcs-cache
 /phpcs.xml
 /.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
 
